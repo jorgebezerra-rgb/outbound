@@ -12,7 +12,7 @@ st.set_page_config(
 url_csv = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQc7pTiScl6n_M9hRk1xrTBPUVdG6jtErnsS3skoZiC-49NdFyQd5D3877D3M4wM8kXf27gZvCjY5vo/pub?gid=390048025&single=true&output=csv"
 
 # ✅ Cache dos dados (10 min)
-#@st.cache_data(ttl=600, show_spinner=False)
+@st.cache_data(ttl=300, show_spinner=False)
 def carregar_dados(url_csv: str) -> pd.DataFrame:
     df = pd.read_csv(url_csv, thousands='.')
     colunas_numericas = [
@@ -237,3 +237,4 @@ with tab2:
                 with cols[j]:
                     with st.container(border=True):
                         grafico_hora_a_hora(df_area, nome_area)
+
