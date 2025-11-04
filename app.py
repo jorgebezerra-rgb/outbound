@@ -184,7 +184,7 @@ df = carregar_dados(url_csv)
 tab1, tab2 = st.tabs(["📊 Dashboard Acumulado", "📈 Dashboard Hora a Hora"])
 
 with tab1:
-    st.header("📊 Produtividade Inbound :blue[Acumulado]:")
+    st.header("📊 Produtividade Outbound :blue[Acumulado]:")
 
     areas = {
         'Packing AutoStore': df[df['Área'] == 'Packing Autostore'].copy(),
@@ -218,7 +218,7 @@ with tab1:
                         gerar_grafico_acumulado(df_area, nome_area)
 
 with tab2:
-    st.header("📊 Produtividade Inbound :blue[HxH]:")
+    st.header("📊 Produtividade Outbound :blue[HxH]:")
     #st.markdown("### 🔹 Visão Geral das Áreas")
 
     areas = {
@@ -237,6 +237,7 @@ with tab2:
                 with cols[j]:
                     with st.container(border=True):
                         grafico_hora_a_hora(df_area, nome_area)
+
 
 
 
